@@ -28,11 +28,18 @@ pt-BR:
       student: 
         one: 'Estudante'
         other: 'Estudantes'
+      course: 
+        one: 'Curso'
+        other: 'Cursos'
     attributes:
       student: 
         name: 'Nome'
         register_number: 'Número de registro'
         status: 'Situação'
+      description: 
+        name: 'Nome'
+        description: 'Descrição'
+        status: 'Situação'  
   date:
     abbr_day_names:
     - Dom

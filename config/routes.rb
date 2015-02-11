@@ -16,9 +16,9 @@ Rails.application.routes.draw do
 
   # Example resource route with options:
     resources :students do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
+      end
+
+      resources :courses do
       end
   #
   #     collection do
