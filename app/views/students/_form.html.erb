@@ -1,12 +1,33 @@
+<div class="col-sm-4 no-padding-left">
 <%= simple_form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :name %>
-  <%= error_span(@student[:name]) %>
-  <%= f.input :register_number %>
-  <%= error_span(@student[:register_number]) %>
-  <%= f.input :status %>
-  <%= error_span(@student[:status]) %>
+ 		
+ 		<% @student.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger">
+      <p><%= msg %></p>
+    </div>
+  <% end %>
+	
+   <div class="form-group">
+   	<%= f.label :name %>
+    <%= f.text_field :name, :class => 'form-control', input_html: { maxlength: 45 } %>
+  </div>
 
+  <div class="form-group">
+  	 <%= f.label :register_number %>
+    <%= f.text_field :register_number,:class => 'form-control', input_html: { maxlength: 45 } %>
+  </div>
+
+  <div class="form-group">
+  	 <%= f.label :status %>
+     <%= f.select :status, options_for_select(StudentStatus.to_a, @student.status), {}, :class => 'form-control btn dropdown-toggle selectpicker btn-default' %>
+  </div>
+
+	<div class="form-group">
   <%= f.button :submit, :class => 'btn-primary' %>
+
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 students_path, :class => 'btn btn-default' %>
+
+   </div>
 <% end %>
+</div>
