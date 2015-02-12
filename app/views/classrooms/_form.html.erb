@@ -1,0 +1,25 @@
+<div class="col-sm-4 no-padding-left">
+<%= simple_form_for @classroom, :html => { :class => 'form-horizontal' } do |f| %>
+ <% @classroom.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger">
+      <p><%= msg %></p>
+    </div>
+    <% end %>
+   <div class="form-group">
+     <%= f.association :student, input_html: { class: 'form-control btn dropdown-toggle selectpicker btn-default' }  %>
+  </div>
+	
+	<div class="form-group">
+     <%= f.association :course, input_html: { class: 'form-control btn dropdown-toggle selectpicker btn-default' }  %>
+  </div>
+
+  <%= f.hidden_field :entry_at, value: Time.now %>
+	<div class="form-group">
+
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                classrooms_path, :class => 'btn btn-default' %>
+<% end %>
+
+</div>

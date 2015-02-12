@@ -14,7 +14,7 @@
       <div class="header">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class= <%= params[:controller] == 'students' ? 'active' : '' %>><a href="http://getbootstrap.com/examples/jumbotron-narrow/#">Home</a></li>
+            <li role="presentation" class= <%= params[:controller] == 'classrooms' ? 'active' : '' %>><a href="<%= classrooms_path %>">Salas de Aula</a></li>
             <li role="presentation" class= <%= params[:controller] == 'students' ? 'active' : '' %>><a href="<%= students_path %>">Estudantes</a></li>
             <li role="presentation" class= <%= params[:controller] == 'courses' ? 'active' : '' %>><a href="<%= courses_path %>">Cursos</a></li>
           </ul>

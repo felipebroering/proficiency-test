@@ -1,5 +1,7 @@
   class Student < ActiveRecord::Base
 
+  has_many :classrooms, :dependent => :delete_all
+
 	validates :name, presence: true, length: { maximum: 45 } 
 	validates :register_number, presence: true, length: { maximum: 45 }
 

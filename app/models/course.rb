@@ -1,5 +1,7 @@
 class Course < ActiveRecord::Base
 
+	has_many :classrooms, :dependent => :delete_all
+	
 	validates :name, presence: true, length: { maximum: 45 } 
 	validates :description, presence: true, length: { maximum: 45 }
 
