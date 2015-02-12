@@ -6,4 +6,4 @@ pt-BR:
     course_status:
       started: "Iniciado"
       finished: 'Finalizado'  
-      closed: 'Fechado'
+      open: 'Aberto'

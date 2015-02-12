@@ -6,11 +6,11 @@
     </div>
     <% end %>
    <div class="form-group">
-     <%= f.association :student, input_html: { class: 'form-control btn dropdown-toggle selectpicker btn-default' }  %>
+     <%= f.input :student_id, collection: Student.active.collect {|s| [s.name, s.id]}, input_html: { class: 'form-control btn dropdown-toggle selectpicker btn-default' }  %>
   </div>
 	
 	<div class="form-group">
-     <%= f.association :course, input_html: { class: 'form-control btn dropdown-toggle selectpicker btn-default' }  %>
+     <%= f.input :course_id, collection: Course.open.collect {|c| [c.name, c.id]}, input_html: { class: 'form-control btn dropdown-toggle selectpicker btn-default' }  %>
   </div>
 
   <%= f.hidden_field :entry_at, value: Time.now %>

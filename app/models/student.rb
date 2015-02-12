@@ -9,5 +9,12 @@
 
 	 def status_humanized
     StudentStatus.translate(StudentStatus.key_for(status))
-  end
+   end
+
+
+   def self.active
+   		self.where(status: StudentStatus::ACTIVE)
+   end
+
+
 end

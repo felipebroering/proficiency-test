@@ -11,4 +11,16 @@ RSpec.describe Student, :type => :model do
 			it { is_expected.to validate_presence_of(:status)}
 			it { is_expected.to ensure_inclusion_of(:status).in_array(StudentStatus.list)}
 		end
+
+
+		context 'rules' do
+			it 'only active' do
+				active_student = FactoryGirl.create(:student)
+				inactive_student = FactoryGirl.create(:student, status: StudentStatus::INACTIVE)
+				students = Student.active
+				expect(students).to include(active_student)
+				expect(students).not_to include(inactive_student)
+			end
+		end
+
 end

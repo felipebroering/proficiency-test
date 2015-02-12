@@ -10,4 +10,8 @@ class Course < ActiveRecord::Base
 	 def status_humanized
     CourseStatus.translate(CourseStatus.key_for(status))
   end
+
+  def self.open
+  	self.where(status: CourseStatus::OPEN)
+  end
 end
